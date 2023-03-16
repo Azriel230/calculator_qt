@@ -3,12 +3,11 @@
 
 #include <QMainWindow>
 #include <QString>
+#include <math.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MyMainWindow; }
 QT_END_NAMESPACE
-
-enum Operations {plus, minus, mult, divide};
 
 class MyMainWindow : public QMainWindow
 {
@@ -39,21 +38,53 @@ private slots:
 
     void on_m_pb_9_clicked();
 
-
     void on_m_pb_Backspace_clicked();
 
     void on_m_pb_Clear_clicked();
 
     void on_m_pb_Clear_All_clicked();
 
+    void on_m_pb_MC_clicked();
+
+    void on_m_pb_MR_clicked();
+
+    void on_m_pb_MS_clicked();
+
+    void on_m_pb_Mplus_clicked();
+
+    void on_m_pb_Sqrt_clicked();
+
+    void on_m_pb_div_clicked();
+
+    void on_m_pb_mult_clicked();
+
+    void on_m_pb_plus_clicked();
+
+    void on_m_pb_minus_clicked();
+
+    void on_m_pb_equal_clicked();
+
+    void on_m_pb_sq_clicked();
+
+    void on_m_pb_fraction_clicked();
+
+    void on_m_pb_sign_clicked();
+
+    void on_m_pb_dot_clicked();
+
 private:
     void display_res();
+    void display_memory_res();
+    void display_operation_res();
 
 private:
     QString m_display;
     QString m_display_memory;
+    QString m_display_operation;
 
     double m_res = 0;
+    double m_res_memory;
+    int flag_operation = 0; // 0-no operation, 1-plus, 2-minus, 3-mult, 4-div
 
 private:
     Ui::MyMainWindow *ui;
