@@ -164,7 +164,7 @@ void MyMainWindow::on_m_pb_plus_clicked()
 
 void MyMainWindow::on_m_pb_minus_clicked()
 {
-    flag_operation =2;
+    flag_operation = 2;
     m_res = m_display.toDouble();
     m_display_operation = "-";
     display_operation_res();
@@ -211,8 +211,9 @@ void MyMainWindow::on_m_pb_equal_clicked()
     default:
         break;
     }
+
     flag_operation = 0;
-    m_display.number(m_res);
+    m_display = m_display.number(m_res);
     display_res();
 
 }
@@ -220,24 +221,37 @@ void MyMainWindow::on_m_pb_equal_clicked()
 
 void MyMainWindow::on_m_pb_sq_clicked()
 {
-
+    m_res = m_display.toDouble();
+    m_res *= m_res;
+    m_display = m_display.number(m_res);
+    display_res();
 }
 
 
 void MyMainWindow::on_m_pb_fraction_clicked()
 {
-
+    m_res = m_display.toDouble();
+    m_res = 1/m_res;
+    m_display = m_display.number(m_res);
+    display_res();
 }
 
 
 void MyMainWindow::on_m_pb_sign_clicked()
 {
-
+    m_res = m_display.toDouble();
+    m_res = -1 * m_res;
+    m_display = m_display.number(m_res);
+    display_res();
 }
 
 
 void MyMainWindow::on_m_pb_dot_clicked()
 {
-
+    if(!m_display.contains('.'))
+    {
+        m_display = m_display + ".";
+        display_res();
+    }
 }
 
